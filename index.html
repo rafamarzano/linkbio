@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rafaela Marzano · Links</title>
+<meta name="description" content="Rafaela Marzano, criadora de conteúdo UGC. Portfólio, contato para marcas e redes sociais.">
+<meta name="theme-color" content="#f3eee9">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ==========================================================
+     TOKENS DE DESIGN
+     Mesma paleta e fontes do site de portfólio para manter a
+     identidade visual coerente.
+     ========================================================== */
+  :root{
+    --creme: #f3eee9;
+    --creme-carta: #eae2d6;
+    --tinta: #14110d;
+    --tinta-suave: #4a453d;
+    --royal: #0049a4;
+    --royal-escuro: #003172;
+    --vermelho: #8e1825;
+    --linha: rgba(20, 17, 13, 0.12);
+    --branco: #fffdfa;
+
+    --serif: "Fraunces", serif;
+    --sans: "Plus Jakarta Sans", sans-serif;
+
+    --raio: 18px;
+    --raio-pequeno: 14px;
+    --sombra: 0 18px 40px -20px rgba(20, 17, 13, 0.35);
+    --transicao: 0.35s cubic-bezier(.22,.61,.36,1);
+  }
+
+  *, *::before, *::after{ box-sizing: border-box; }
+
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body{
+    margin: 0;
+    min-height: 100vh;
+    background: var(--creme);
+    color: var(--tinta);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px 32px;
+    /* Textura editorial sutil no fundo */
+    background-image:
+      radial-gradient(circle at 15% 12%, rgba(0, 73, 164, 0.06), transparent 40%),
+      radial-gradient(circle at 85% 88%, rgba(142, 24, 37, 0.05), transparent 45%);
+    background-attachment: fixed;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+
+  h1, h2{
+    font-family: var(--serif);
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  em{
+    font-style: italic;
+    color: var(--royal);
+  }
+
+  p{ margin: 0; }
+
+  /* Foco visível para navegação por teclado */
+  a:focus-visible{
+    outline: 2.5px solid var(--royal);
+    outline-offset: 3px;
+    border-radius: var(--raio-pequeno);
+  }
+
+  .pagina{
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  /* ==========================================================
+     CABEÇALHO: avatar + nome + tagline
+     ========================================================== */
+  .cabecalho{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    animation: entrada 0.7s cubic-bezier(.22,.61,.36,1) both;
+  }
+
+  .avatar{
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    /* EDITE AQUI: bloco simulando a foto de perfil.
+       Para usar uma foto real, troque esta div por:
+       <img src="sua-foto.jpg" alt="Rafaela Marzano" class="avatar-img"> */
+    background: linear-gradient(155deg, var(--royal) 0%, var(--royal-escuro) 45%, var(--tinta) 78%, var(--vermelho) 130%);
+    box-shadow: var(--sombra);
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.22), transparent 45%),
+      radial-gradient(circle at 80% 85%, rgba(142, 24, 37, 0.3), transparent 55%);
+  }
+  .avatar-img{
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--sombra);
+  }
+
+  .eyebrow{
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--royal-escuro);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before,
+  .eyebrow::after{
+    content: "";
+    width: 18px;
+    height: 1.5px;
+    background: var(--vermelho);
+  }
+
+  .nome{
+    font-size: clamp(2rem, 8vw, 2.4rem);
+  }
+
+  .tagline{
+    font-size: 0.95rem;
+    color: var(--tinta-suave);
+    max-width: 320px;
+  }
+
+  /* ==========================================================
+     LISTA DE LINKS
+     ========================================================== */
+  .links{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .link{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--branco);
+    border: 1.5px solid var(--linha);
+    border-radius: var(--raio);
+    padding: 16px 20px;
+    transition: transform var(--transicao), box-shadow var(--transicao), border-color var(--transicao), background var(--transicao);
+    opacity: 0;
+    animation: entrada 0.7s cubic-bezier(.22,.61,.36,1) forwards;
+  }
+  .link:hover{
+    transform: translateY(-2px);
+    box-shadow: var(--sombra);
+    border-color: transparent;
+  }
+  .link:active{ transform: translateY(0); }
+
+  .link .icone{
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--creme-carta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--royal);
+    transition: background var(--transicao), color var(--transicao);
+  }
+  .link .icone svg{ width: 22px; height: 22px; }
+
+  .link:hover .icone{
+    background: var(--royal);
+    color: var(--branco);
+  }
+
+  .link .conteudo{
+    flex-grow: 1;
+    min-width: 0;
+  }
+  .link .titulo{
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    color: var(--tinta);
+  }
+  .link .subtitulo{
+    font-size: 0.82rem;
+    color: var(--tinta-suave);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .link .seta{
+    color: var(--vermelho);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    transition: transform var(--transicao);
+  }
+  .link:hover .seta{ transform: translateX(4px); }
+
+  /* Variação: CTA principal (contratação via WhatsApp) */
+  .link.destaque{
+    background: var(--tinta);
+    border-color: var(--tinta);
+  }
+  .link.destaque .titulo{ color: var(--creme); }
+  .link.destaque .subtitulo{ color: rgba(243, 238, 233, 0.7); }
+  .link.destaque .icone{
+    background: rgba(255,255,255,0.1);
+    color: var(--creme);
+  }
+  .link.destaque:hover{ background: var(--royal); border-color: var(--royal); }
+  .link.destaque:hover .icone{
+    background: rgba(255,255,255,0.18);
+    color: var(--creme);
+  }
+  .link.destaque .seta{ color: var(--creme); }
+
+  /* Atraso escalonado das entradas */
+  .link:nth-child(1){ animation-delay: 0.15s; }
+  .link:nth-child(2){ animation-delay: 0.25s; }
+  .link:nth-child(3){ animation-delay: 0.35s; }
+  .link:nth-child(4){ animation-delay: 0.45s; }
+  .link:nth-child(5){ animation-delay: 0.55s; }
+  .link:nth-child(6){ animation-delay: 0.65s; }
+
+  @keyframes entrada{
+    from{ opacity: 0; transform: translateY(16px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+
+  /* ==========================================================
+     RODAPÉ
+     ========================================================== */
+  .rodape{
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--tinta-suave);
+    margin-top: 12px;
+    animation: entrada 0.7s cubic-bezier(.22,.61,.36,1) 0.75s both;
+  }
+  .rodape .assinatura{
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--tinta);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .rodape .assinatura em{ color: var(--vermelho); }
+
+  /* ==========================================================
+     RESPONSIVO
+     ========================================================== */
+  @media (max-width: 380px){
+    body{ padding: 30px 16px 24px; }
+    .link{ padding: 14px 16px; gap: 12px; }
+    .link .icone{ width: 40px; height: 40px; }
+    .link .titulo{ font-size: 1.02rem; }
+  }
+</style>
+</head>
+<body>
+
+<main class="pagina" aria-label="Links de Rafaela Marzano">
+
+  <!-- ============================================================
+       1. CABEÇALHO: avatar, eyebrow, nome e tagline
+       ============================================================ -->
+  <header class="cabecalho">
+    <div class="avatar" role="img" aria-label="Foto de Rafaela Marzano"></div>
+    <span class="eyebrow" id="cabecalho-eyebrow"></span>
+    <h1 class="nome" id="cabecalho-nome"></h1>
+    <p class="tagline" id="cabecalho-tagline"></p>
+  </header>
+
+  <!-- ============================================================
+       2. LISTA DE LINKS
+       ============================================================ -->
+  <nav class="links" id="lista-links" aria-label="Meus links"></nav>
+
+  <!-- ============================================================
+       3. RODAPÉ
+       ============================================================ -->
+  <footer class="rodape">
+    <span class="assinatura">Rafaela <em>Marzano</em></span>
+    <span id="rodape-direitos"></span>
+  </footer>
+
+</main>
+
+<script>
+/* ================================================================
+   OBJETO DE CONFIGURAÇÃO
+   Edite todo o conteúdo desta página aqui. Não é necessário mexer
+   no código abaixo desta seção para trocar nome, textos ou links.
+   ================================================================ */
+const CONFIG = {
+
+  // EDITE AQUI: nome, eyebrow (linha pequena acima do nome) e tagline.
+  cabecalho: {
+    eyebrow: "Criadora de conteúdo UGC",
+    nome: "Rafaela Marzano",
+    tagline: "Vídeos e fotos de produto que ajudam marcas a vender de forma autêntica.",
+  },
+
+  // EDITE AQUI: lista de links, na ordem em que devem aparecer.
+  // Cada item tem:
+  //   - "tipo": ícone que aparece à esquerda. Opções: "portfolio",
+  //     "whatsapp", "instagram", "tiktok", "email"
+  //   - "titulo": texto principal do botão
+  //   - "subtitulo": pequena descrição em cima (opcional)
+  //   - "url": para onde o botão leva
+  //   - "destaque": true para virar o botão principal (fundo escuro)
+  links: [
+    {
+      tipo: "portfolio",
+      titulo: "Portfólio completo",
+      subtitulo: "Vídeos, fotos e serviços",
+      url: "https://rafamarzano.online",
+      // ATENÇÃO: troque este link pelo endereço final do seu portfólio
+      // depois de publicá-lo (no GitHub Pages, Netlify, Vercel etc.).
+    },
+    {
+      tipo: "whatsapp",
+      titulo: "Contratar como UGC",
+      subtitulo: "Fale comigo no WhatsApp",
+      url: "https://wa.me/5531983494752?text=Oi%20Rafa,%20cheguei%20pela%20sua%20bio%20e%20queria%20conversar%20sobre%20uma%20parceria.",
+      destaque: true,
+    },
+    {
+      tipo: "instagram",
+      titulo: "Instagram",
+      subtitulo: "@rafamarzano",
+      url: "https://instagram.com/rafamarzano",
+    },
+    {
+      tipo: "tiktok",
+      titulo: "TikTok",
+      subtitulo: "@rafamarzano",
+      // EDITE AQUI: se o usuário do TikTok for diferente, ajuste o link
+      // e o subtítulo acima.
+      url: "https://www.tiktok.com/@rafamarzano",
+    },
+    {
+      tipo: "email",
+      titulo: "E-mail",
+      subtitulo: "contato@rafamarzano.online",
+      url: "mailto:contato@rafamarzano.online?subject=Contato%20pela%20bio",
+    },
+  ],
+
+  // EDITE AQUI: texto de direitos autorais (o ano é preenchido automaticamente).
+  direitosAutorais: "Todos os direitos reservados.",
+};
+
+/* ================================================================
+   RENDERIZAÇÃO
+   Lê o objeto CONFIG acima e monta a página. Nada aqui precisa
+   ser editado para trocar textos, links ou ícones.
+   ================================================================ */
+
+// Ícones SVG (traçado simples, coerentes entre si)
+const ICONES = {
+  portfolio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a13.5 13.5 0 0 1 0 18M12 3a13.5 13.5 0 0 0 0 18"></path></svg>',
+  whatsapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.6 7.7L3 21l1.3-4.4A9 9 0 1 1 21 12z"></path><path d="M8.5 9.5c0 4 2 6 6 6 .8 0 1.2-.2 1.5-.7l.5-.8-2.2-1.1-.7.9c-1.4-.4-2.3-1.3-2.7-2.7l.9-.7L10.7 8l-.8.5c-.5.3-.7.7-.7 1.5z"></path></svg>',
+  instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>',
+  tiktok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"></path><path d="M14 4c0 2.2 1.8 4 4 4"></path></svg>',
+  email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>',
+};
+
+// Rótulo acessível descritivo para cada tipo de link
+const ROTULOS_ARIA = {
+  portfolio: "Abrir portfólio",
+  whatsapp: "Falar no WhatsApp",
+  instagram: "Abrir Instagram",
+  tiktok: "Abrir TikTok",
+  email: "Enviar e-mail",
+};
+
+// ---------- Cabeçalho ----------
+document.getElementById("cabecalho-eyebrow").textContent = CONFIG.cabecalho.eyebrow;
+document.getElementById("cabecalho-nome").innerHTML =
+  CONFIG.cabecalho.nome.split(" ")[0]
+  + " <em>"
+  + CONFIG.cabecalho.nome.split(" ").slice(1).join(" ")
+  + "</em>";
+document.getElementById("cabecalho-tagline").textContent = CONFIG.cabecalho.tagline;
+
+// ---------- Lista de links ----------
+document.getElementById("lista-links").innerHTML = CONFIG.links.map(item => {
+  const ehExterno = !item.url.startsWith("mailto:");
+  const targetAttr = ehExterno ? ' target="_blank" rel="noopener noreferrer"' : '';
+  const classes = "link" + (item.destaque ? " destaque" : "");
+  const icone = ICONES[item.tipo] || ICONES.portfolio;
+  const rotulo = ROTULOS_ARIA[item.tipo] || item.titulo;
+  const subtitulo = item.subtitulo
+    ? '<div class="subtitulo">' + item.subtitulo + '</div>'
+    : '';
+  return (
+    '<a class="' + classes + '" href="' + item.url + '"' + targetAttr + ' aria-label="' + rotulo + ': ' + item.titulo + '">' +
+      '<span class="icone" aria-hidden="true">' + icone + '</span>' +
+      '<span class="conteudo">' +
+        '<span class="titulo">' + item.titulo + '</span>' +
+        subtitulo +
+      '</span>' +
+      '<span class="seta" aria-hidden="true">&#8594;</span>' +
+    '</a>'
+  );
+}).join("");
+
+// ---------- Rodapé ----------
+document.getElementById("rodape-direitos").textContent =
+  new Date().getFullYear() + ". " + CONFIG.direitosAutorais;
+</script>
+
+</body>
+</html>
