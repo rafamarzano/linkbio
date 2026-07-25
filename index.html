@@ -135,6 +135,7 @@
     height: 112px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center 22%;
     box-shadow: var(--sombra);
   }
 
@@ -311,7 +312,7 @@
        1. CABEÇALHO: avatar, eyebrow, nome e tagline
        ============================================================ -->
   <header class="cabecalho">
-    <div class="avatar" role="img" aria-label="Foto de Rafaela Marzano"></div>
+    <img class="avatar-img" src="imagens/avatar.png" alt="Foto de Rafaela Marzano">
     <span class="eyebrow" id="cabecalho-eyebrow"></span>
     <h1 class="nome" id="cabecalho-nome"></h1>
     <p class="tagline" id="cabecalho-tagline"></p>
@@ -358,7 +359,7 @@ const CONFIG = {
   links: [
     {
       tipo: "portfolio",
-      titulo: "Portfólio completo",
+      titulo: "Portfólio UGC",
       subtitulo: "Vídeos, fotos e serviços",
       url: "https://rafamarzano.online",
       // ATENÇÃO: troque este link pelo endereço final do seu portfólio
@@ -366,7 +367,7 @@ const CONFIG = {
     },
     {
       tipo: "whatsapp",
-      titulo: "Contratar como UGC",
+      titulo: "Me contrate como criadora",
       subtitulo: "Fale comigo no WhatsApp",
       url: "https://wa.me/5531983494752?text=Oi%20Rafa,%20cheguei%20pela%20sua%20bio%20e%20queria%20conversar%20sobre%20uma%20parceria.",
       destaque: true,
