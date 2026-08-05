@@ -139,21 +139,12 @@
   }
 
   .eyebrow{
-    font-size: 11.5px;
+    font-size: 12.5px;
     font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
     color: var(--royal-escuro);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .eyebrow::before,
-  .eyebrow::after{
-    content: "";
-    width: 18px;
-    height: 1.5px;
-    background: var(--vermelho);
+    max-width: 300px;
+    line-height: 1.5;
   }
 
   .nome{
@@ -342,7 +333,7 @@ const CONFIG = {
 
   // EDITE AQUI: nome, eyebrow (linha pequena acima do nome) e tagline.
   cabecalho: {
-    eyebrow: "Criadora de conteúdo UGC",
+    eyebrow: "beauty, fashion, lifestyle & tech ugc • nano creator",
     nome: "Rafaela Marzano",
     tagline: "Vídeos e fotos de produto que ajudam marcas a vender de forma autêntica.",
   },
