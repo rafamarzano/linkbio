@@ -5,35 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rafaela Marzano · Links</title>
 <meta name="description" content="Rafaela Marzano, criadora de conteúdo UGC. Portfólio, contato para marcas e redes sociais.">
-<meta name="theme-color" content="#f3eee9">
+<meta name="theme-color" content="#A9CBEA">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
 
 <style>
   /* ==========================================================
-     TOKENS DE DESIGN
-     Mesma paleta e fontes do site de portfólio para manter a
-     identidade visual coerente.
+     TOKENS DE DESIGN — Versão "Paleta Original"
+     Paleta exata que a Rafa mandou: amarelo manteiga, azul
+     pastel, verde macha, chocolate e os quatro tons de rosa/
+     vermelho. Clima: área de trabalho Windows XP / Mac Finder
+     nostálgica, mesma vibe dos últimos posts dela.
      ========================================================== */
   :root{
-    --creme: #f3eee9;
-    --creme-carta: #eae2d6;
-    --tinta: #14110d;
-    --tinta-suave: #4a453d;
-    --royal: #0049a4;
-    --royal-escuro: #003172;
-    --vermelho: #8e1825;
-    --linha: rgba(20, 17, 13, 0.12);
-    --branco: #fffdfa;
+    --amarelo: #F5EFC6;
+    --azul: #B7DFFF;
+    --azul-escuro: #6FA8D6;
+    --verde: #BAD797;
+    --verde-escuro: #8FB56C;
+    --chocolate: #3D2722;
+    --rosa-claro: #E29CBF;
+    --rosa: #DA75A5;
+    --magenta: #D2437C;
+    --vermelho: #B2082C;
+    --creme: #FBF8EF;
+    --branco: #FFFDF9;
 
     --serif: "Fraunces", serif;
     --sans: "Plus Jakarta Sans", sans-serif;
+    --pixel: "VT323", monospace;
 
-    --raio: 18px;
-    --raio-pequeno: 14px;
-    --sombra: 0 18px 40px -20px rgba(20, 17, 13, 0.35);
+    --raio: 16px;
+    --sombra: 0 20px 45px -18px rgba(61, 39, 34, 0.45);
     --transicao: 0.35s cubic-bezier(.22,.61,.36,1);
   }
 
@@ -43,127 +48,208 @@
     *, *::before, *::after{
       animation-duration: 0.001ms !important;
       transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
     }
   }
+
+  html{ height: 100%; }
 
   body{
     margin: 0;
     min-height: 100vh;
-    background: var(--creme);
-    color: var(--tinta);
+    min-height: 100dvh;
+    color: var(--chocolate);
     font-family: var(--sans);
     font-size: 16px;
-    line-height: 1.55;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
     display: flex;
     justify-content: center;
-    padding: 40px 20px 32px;
-    /* Textura editorial sutil no fundo */
-    background-image:
-      radial-gradient(circle at 15% 12%, rgba(0, 73, 164, 0.06), transparent 40%),
-      radial-gradient(circle at 85% 88%, rgba(142, 24, 37, 0.05), transparent 45%);
+    align-items: flex-start;
+    padding: 44px 18px 84px;
+    /* Fundo: imagem enviada pela Rafa */
+    background-image: url("imagens/fundo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
+    /* cursor pixelado, no clima do XP */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 2 L4 20 L9 16 L12 22 L15 20.5 L12 14.5 L18 14.5 Z" fill="black" stroke="white" stroke-width="1.5"/></svg>') 4 2, auto;
   }
 
   a{ color: inherit; text-decoration: none; }
-
-  h1, h2{
-    font-family: var(--serif);
-    font-weight: 500;
-    line-height: 1.1;
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
-
-  em{
-    font-style: italic;
-    color: var(--royal);
-  }
-
   p{ margin: 0; }
 
-  /* Foco visível para navegação por teclado */
-  a:focus-visible{
-    outline: 2.5px solid var(--royal);
+  a:focus-visible, button:focus-visible{
+    outline: 3px solid var(--vermelho);
     outline-offset: 3px;
-    border-radius: var(--raio-pequeno);
+    border-radius: 8px;
   }
 
-  .pagina{
-    width: 100%;
-    max-width: 460px;
+  /* Ícones decorativos de "área de trabalho" — puramente atmosféricos */
+  .icone-mesa{
+    position: fixed;
+    z-index: -1;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 28px;
+    align-items: center;
+    gap: 6px;
+    width: 64px;
   }
+  .icone-mesa .forma{
+    width: 44px;
+    height: 36px;
+    border-radius: 3px 8px 8px 8px;
+    position: relative;
+    box-shadow: 0 6px 14px -6px rgba(61,39,34,0.5);
+  }
+  .icone-mesa .forma::before{
+    content:"";
+    position: absolute;
+    top: -7px; left: 0;
+    width: 55%; height: 8px;
+    border-radius: 4px 4px 0 0;
+    background: inherit;
+  }
+  .icone-mesa span{
+    font-family: var(--pixel);
+    font-size: 15px;
+    color: var(--chocolate);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+  }
+  .im1{ top: 6%; left: 4%; }
+  .im1 .forma{ background: var(--rosa-claro); }
+  .im2{ top: 6%; right: 4%; }
+  .im2 .forma{ background: var(--amarelo); }
+  .im3{ top: 46%; right: 3%; }
+  .im3 .forma{ background: var(--azul); }
+  @media (max-width: 720px){ .icone-mesa{ display: none; } }
 
   /* ==========================================================
-     CABEÇALHO: avatar + nome + tagline
+     JANELA PRINCIPAL
      ========================================================== */
+  .pagina{
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    animation: entrarJanela 0.6s cubic-bezier(.22,.61,.36,1) both;
+  }
+
+  @keyframes entrarJanela{
+    from{ opacity: 0; transform: translateY(22px) scale(0.98); }
+    to{ opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .janela{
+    background: var(--creme);
+    border: 1.5px solid rgba(61,39,34,0.14);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    overflow: hidden;
+  }
+
+  .barra-titulo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: linear-gradient(180deg, #ffffff, #EFE9DA);
+    border-bottom: 1.5px solid rgba(61,39,34,0.12);
+  }
+  .pontos{ display:flex; gap:6px; flex-shrink:0; }
+  .ponto{ width:11px; height:11px; border-radius:50%; display:block; }
+  .ponto.vermelho{ background: var(--vermelho); }
+  .ponto.amarelo{ background: var(--amarelo); border: 1px solid rgba(61,39,34,0.15); }
+  .ponto.verde{ background: var(--verde-escuro); }
+
+  .nome-arquivo{
+    font-family: var(--pixel);
+    font-size: 17px;
+    letter-spacing: 0.02em;
+    color: var(--chocolate);
+    flex-grow: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .relogio-janela{
+    font-family: var(--pixel);
+    font-size: 14px;
+    color: rgba(61,39,34,0.55);
+    flex-shrink: 0;
+    display: none;
+  }
+  @media (min-width: 400px){ .relogio-janela{ display: block; } }
+
+  .janela-corpo{
+    padding: 30px 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  /* ---------- Cabeçalho ---------- */
   .cabecalho{
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-    animation: entrada 0.7s cubic-bezier(.22,.61,.36,1) both;
+    gap: 12px;
   }
 
-  .avatar{
-    width: 112px;
-    height: 112px;
-    border-radius: 50%;
-    /* EDITE AQUI: bloco simulando a foto de perfil.
-       Para usar uma foto real, troque esta div por:
-       <img src="sua-foto.jpg" alt="Rafaela Marzano" class="avatar-img"> */
-    background: linear-gradient(155deg, var(--royal) 0%, var(--royal-escuro) 45%, var(--tinta) 78%, var(--vermelho) 130%);
+  .polaroid{
+    background: var(--branco);
+    padding: 10px 10px 26px;
+    border-radius: 4px;
     box-shadow: var(--sombra);
-    position: relative;
-    overflow: hidden;
-  }
-  .avatar::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(255,255,255,0.22), transparent 45%),
-      radial-gradient(circle at 80% 85%, rgba(142, 24, 37, 0.3), transparent 55%);
+    transform: rotate(-3deg);
   }
   .avatar-img{
-    width: 112px;
-    height: 112px;
-    border-radius: 50%;
+    width: 108px;
+    height: 108px;
     object-fit: cover;
-    box-shadow: var(--sombra);
+    display: block;
+    border-radius: 2px;
   }
 
   .eyebrow{
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    color: var(--royal-escuro);
+    font-family: var(--pixel);
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    color: var(--vermelho);
+    background: var(--branco);
+    border: 1.5px dashed var(--vermelho);
+    padding: 4px 12px;
+    border-radius: 999px;
     max-width: 300px;
-    line-height: 1.5;
+    line-height: 1.3;
   }
 
   .nome{
-    font-size: clamp(2rem, 8vw, 2.4rem);
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(1.9rem, 8vw, 2.3rem);
+    line-height: 1.1;
+    margin: 0;
   }
+  .nome em{ font-style: italic; color: var(--magenta); }
 
   .tagline{
     font-size: 0.95rem;
-    color: var(--tinta-suave);
+    color: rgba(61,39,34,0.75);
     max-width: 320px;
   }
 
-  /* ==========================================================
-     LISTA DE LINKS
-     ========================================================== */
+  /* ---------- Lista de links (estilo pastas) ---------- */
   .links{
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
   }
 
   .link{
@@ -171,53 +257,65 @@
     align-items: center;
     gap: 16px;
     background: var(--branco);
-    border: 1.5px solid var(--linha);
-    border-radius: var(--raio);
-    padding: 16px 20px;
-    transition: transform var(--transicao), box-shadow var(--transicao), border-color var(--transicao), background var(--transicao);
+    border: 1.5px solid rgba(61,39,34,0.14);
+    border-radius: 14px;
+    padding: 14px 18px 14px 14px;
+    transition: transform var(--transicao), box-shadow var(--transicao), border-color var(--transicao);
     opacity: 0;
-    animation: entrada 0.7s cubic-bezier(.22,.61,.36,1) forwards;
+    animation: entrarLink 0.55s cubic-bezier(.22,.61,.36,1) forwards;
   }
-  .link:hover{
-    transform: translateY(-2px);
+  .link:hover, .link:focus-visible{
+    transform: translateY(-3px) rotate(-0.4deg);
     box-shadow: var(--sombra);
     border-color: transparent;
   }
-  .link:active{ transform: translateY(0); }
+  .link:active{ transform: translateY(-1px) rotate(0deg); }
 
-  .link .icone{
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: var(--creme-carta);
+  .link:nth-child(1){ animation-delay: 0.10s; }
+  .link:nth-child(2){ animation-delay: 0.18s; }
+  .link:nth-child(3){ animation-delay: 0.26s; }
+  .link:nth-child(4){ animation-delay: 0.34s; }
+  .link:nth-child(5){ animation-delay: 0.42s; }
+
+  @keyframes entrarLink{
+    from{ opacity: 0; transform: translateY(14px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+
+  /* pasta: forma com "aba" no topo, cor definida por --cor-item */
+  .pasta{
+    width: 46px;
+    height: 38px;
+    border-radius: 3px 9px 9px 9px;
+    background: var(--cor-item, var(--azul));
+    position: relative;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    color: var(--royal);
-    transition: background var(--transicao), color var(--transicao);
+    box-shadow: 0 6px 12px -6px rgba(61,39,34,0.4);
   }
-  .link .icone svg{ width: 22px; height: 22px; }
+  .pasta::before{
+    content:"";
+    position: absolute;
+    top: -7px; left: 0;
+    width: 56%; height: 8px;
+    border-radius: 4px 4px 0 0;
+    background: var(--cor-item, var(--azul));
+  }
+  .pasta svg{ width: 20px; height: 20px; color: var(--chocolate); position: relative; z-index: 1; }
 
-  .link:hover .icone{
-    background: var(--royal);
-    color: var(--branco);
-  }
-
-  .link .conteudo{
-    flex-grow: 1;
-    min-width: 0;
-  }
+  .link .conteudo{ flex-grow: 1; min-width: 0; }
   .link .titulo{
     font-family: var(--serif);
     font-weight: 500;
-    font-size: 1.1rem;
-    line-height: 1.2;
-    color: var(--tinta);
+    font-size: 1.08rem;
+    color: var(--chocolate);
   }
   .link .subtitulo{
-    font-size: 0.82rem;
-    color: var(--tinta-suave);
+    font-family: var(--pixel);
+    font-size: 15px;
+    color: rgba(61,39,34,0.6);
     margin-top: 2px;
     white-space: nowrap;
     overflow: hidden;
@@ -226,102 +324,160 @@
 
   .link .seta{
     color: var(--vermelho);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     flex-shrink: 0;
     transition: transform var(--transicao);
   }
   .link:hover .seta{ transform: translateX(4px); }
 
-  /* Variação: CTA principal (contratação via WhatsApp) */
+  /* CTA principal (destaque) */
   .link.destaque{
-    background: var(--tinta);
-    border-color: var(--tinta);
+    background: var(--chocolate);
+    border-color: var(--chocolate);
   }
   .link.destaque .titulo{ color: var(--creme); }
-  .link.destaque .subtitulo{ color: rgba(243, 238, 233, 0.7); }
-  .link.destaque .icone{
-    background: rgba(255,255,255,0.1);
-    color: var(--creme);
-  }
-  .link.destaque:hover{ background: var(--royal); border-color: var(--royal); }
-  .link.destaque:hover .icone{
-    background: rgba(255,255,255,0.18);
-    color: var(--creme);
-  }
-  .link.destaque .seta{ color: var(--creme); }
+  .link.destaque .subtitulo{ color: rgba(245,239,198,0.75); }
+  .link.destaque .seta{ color: var(--amarelo); }
+  .link.destaque:hover{ background: #2C1B17; }
 
-  /* Atraso escalonado das entradas */
-  .link:nth-child(1){ animation-delay: 0.15s; }
-  .link:nth-child(2){ animation-delay: 0.25s; }
-  .link:nth-child(3){ animation-delay: 0.35s; }
-  .link:nth-child(4){ animation-delay: 0.45s; }
-  .link:nth-child(5){ animation-delay: 0.55s; }
-  .link:nth-child(6){ animation-delay: 0.65s; }
-
-  @keyframes entrada{
-    from{ opacity: 0; transform: translateY(16px); }
-    to{ opacity: 1; transform: translateY(0); }
+  /* ---------- Nota adesiva ---------- */
+  .nota{
+    align-self: center;
+    max-width: 280px;
+    background: var(--amarelo);
+    color: var(--chocolate);
+    padding: 14px 16px;
+    border-radius: 2px;
+    box-shadow: var(--sombra);
+    transform: rotate(2deg);
+    font-family: var(--pixel);
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.35;
   }
+  .nota .cursor{
+    display: inline-block;
+    width: 9px;
+    background: var(--chocolate);
+    animation: piscar 1s steps(1) infinite;
+    margin-left: 2px;
+  }
+  @keyframes piscar{ 50%{ opacity: 0; } }
 
-  /* ==========================================================
-     RODAPÉ
-     ========================================================== */
+  /* ---------- Rodapé ---------- */
   .rodape{
     text-align: center;
     font-size: 0.78rem;
-    color: var(--tinta-suave);
-    margin-top: 12px;
-    animation: entrada 0.7s cubic-bezier(.22,.61,.36,1) 0.75s both;
+    color: rgba(61,39,34,0.6);
   }
   .rodape .assinatura{
     font-family: var(--serif);
     font-style: italic;
-    font-size: 0.95rem;
-    color: var(--tinta);
+    font-size: 0.98rem;
+    color: var(--chocolate);
     display: block;
     margin-bottom: 6px;
   }
   .rodape .assinatura em{ color: var(--vermelho); }
 
   /* ==========================================================
+     BARRA DE TAREFAS
+     ========================================================== */
+  .barra-tarefas{
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 5;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 14px;
+    background: linear-gradient(180deg, #ffffff, #EFE9DA);
+    border-top: 1.5px solid rgba(61,39,34,0.15);
+    box-shadow: 0 -10px 24px -14px rgba(61,39,34,0.35);
+  }
+  .btn-iniciar{
+    font-family: var(--pixel);
+    font-size: 18px;
+    color: var(--branco);
+    background: var(--verde-escuro);
+    border: none;
+    border-radius: 999px;
+    padding: 7px 18px 7px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: inherit;
+  }
+  .btn-iniciar .quadrado{
+    width: 12px; height: 12px;
+    background: var(--branco);
+    border-radius: 2px;
+  }
+  .tarefas-espaco{ flex-grow: 1; }
+  .relogio-tarefas{
+    font-family: var(--pixel);
+    font-size: 19px;
+    color: var(--chocolate);
+    white-space: nowrap;
+  }
+
+  /* ==========================================================
      RESPONSIVO
      ========================================================== */
   @media (max-width: 380px){
-    body{ padding: 30px 16px 24px; }
-    .link{ padding: 14px 16px; gap: 12px; }
-    .link .icone{ width: 40px; height: 40px; }
-    .link .titulo{ font-size: 1.02rem; }
+    body{ padding: 30px 14px 76px; }
+    .janela-corpo{ padding: 24px 18px 22px; }
+    .link{ padding: 12px 14px 12px 12px; gap: 12px; }
+    .pasta{ width: 40px; height: 34px; }
   }
 </style>
 </head>
 <body>
 
-<main class="pagina" aria-label="Links de Rafaela Marzano">
+<div class="icone-mesa im1" aria-hidden="true"><div class="forma"></div><span>fotos</span></div>
+<div class="icone-mesa im2" aria-hidden="true"><div class="forma"></div><span>ideias</span></div>
+<div class="icone-mesa im3" aria-hidden="true"><div class="forma"></div><span>ugc</span></div>
 
-  <!-- ============================================================
-       1. CABEÇALHO: avatar, eyebrow, nome e tagline
-       ============================================================ -->
-  <header class="cabecalho">
-    <img class="avatar-img" src="imagens/avatar.png" alt="Foto de Rafaela Marzano">
-    <span class="eyebrow" id="cabecalho-eyebrow"></span>
-    <h1 class="nome" id="cabecalho-nome"></h1>
-    <p class="tagline" id="cabecalho-tagline"></p>
-  </header>
+<div class="pagina">
+  <main class="janela" aria-label="Links de Rafaela Marzano">
+    <div class="barra-titulo">
+      <div class="pontos" aria-hidden="true">
+        <span class="ponto vermelho"></span><span class="ponto amarelo"></span><span class="ponto verde"></span>
+      </div>
+      <span class="nome-arquivo">rafamarzano_bio.app</span>
+      <span class="relogio-janela" id="relogio-janela"></span>
+    </div>
 
-  <!-- ============================================================
-       2. LISTA DE LINKS
-       ============================================================ -->
-  <nav class="links" id="lista-links" aria-label="Meus links"></nav>
+    <div class="janela-corpo">
+      <header class="cabecalho">
+        <div class="polaroid">
+          <img class="avatar-img" src="imagens/avatar.png" alt="Foto de Rafaela Marzano">
+        </div>
+        <span class="eyebrow" id="cabecalho-eyebrow"></span>
+        <h1 class="nome" id="cabecalho-nome"></h1>
+        <p class="tagline" id="cabecalho-tagline"></p>
+      </header>
 
-  <!-- ============================================================
-       3. RODAPÉ
-       ============================================================ -->
-  <footer class="rodape">
-    <span class="assinatura">Rafaela <em>Marzano</em></span>
-    <span id="rodape-direitos"></span>
-  </footer>
+      <nav class="links" id="lista-links" aria-label="Meus links"></nav>
 
-</main>
+      <div class="nota" aria-hidden="true">
+        vamos criar juntos?<span class="cursor">&nbsp;</span>
+      </div>
+
+      <footer class="rodape">
+        <span class="assinatura">Rafaela <em>Marzano</em></span>
+        <span id="rodape-direitos"></span>
+      </footer>
+    </div>
+  </main>
+</div>
+
+<div class="barra-tarefas" aria-hidden="true">
+  <button class="btn-iniciar" type="button" tabindex="-1"><span class="quadrado"></span>menu</button>
+  <div class="tarefas-espaco"></div>
+  <span class="relogio-tarefas" id="relogio-tarefas"></span>
+</div>
 
 <script>
 /* ================================================================
@@ -331,7 +487,6 @@
    ================================================================ */
 const CONFIG = {
 
-  // EDITE AQUI: nome, eyebrow (linha pequena acima do nome) e tagline.
   cabecalho: {
     eyebrow: "beauty, fashion, lifestyle & tech ugc • nano creator",
     nome: "Rafaela Marzano",
@@ -339,13 +494,7 @@ const CONFIG = {
   },
 
   // EDITE AQUI: lista de links, na ordem em que devem aparecer.
-  // Cada item tem:
-  //   - "tipo": ícone que aparece à esquerda. Opções: "portfolio",
-  //     "whatsapp", "instagram", "tiktok", "email"
-  //   - "titulo": texto principal do botão
-  //   - "subtitulo": pequena descrição em cima (opcional)
-  //   - "url": para onde o botão leva
-  //   - "destaque": true para virar o botão principal (fundo escuro)
+  // "cor" aceita: "verde", "magenta", "azul", "amarelo", "rosa" — cores das pastas.
   links: [
     {
       tipo: "whatsapp",
@@ -353,40 +502,37 @@ const CONFIG = {
       subtitulo: "Fale comigo no WhatsApp",
       url: "https://wa.me/5531983494752?text=Oi%20Rafa,%20cheguei%20pela%20sua%20bio%20e%20queria%20conversar%20sobre%20uma%20parceria.",
       destaque: true,
+      cor: "verde",
     },
     {
       tipo: "instagram",
       titulo: "Instagram",
       subtitulo: "@rafamarzano",
       url: "https://instagram.com/rafamarzano",
+      cor: "magenta",
     },
     {
       tipo: "tiktok",
       titulo: "TikTok",
       subtitulo: "@rafamarzano",
-      // EDITE AQUI: se o usuário do TikTok for diferente, ajuste o link
-      // e o subtítulo acima.
       url: "https://www.tiktok.com/@rafamarzano",
+      cor: "azul",
     },
     {
       tipo: "email",
       titulo: "E-mail",
       subtitulo: "contato@rafamarzano.online",
       url: "mailto:contato@rafamarzano.online?subject=Contato%20pela%20bio",
+      cor: "amarelo",
     },
   ],
 
-  // EDITE AQUI: texto de direitos autorais (o ano é preenchido automaticamente).
   direitosAutorais: "Todos os direitos reservados.",
 };
 
 /* ================================================================
-   RENDERIZAÇÃO
-   Lê o objeto CONFIG acima e monta a página. Nada aqui precisa
-   ser editado para trocar textos, links ou ícones.
+   RENDERIZAÇÃO — não precisa editar daqui pra baixo
    ================================================================ */
-
-// Ícones SVG (traçado simples, coerentes entre si)
 const ICONES = {
   portfolio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a13.5 13.5 0 0 1 0 18M12 3a13.5 13.5 0 0 0 0 18"></path></svg>',
   whatsapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.6 7.7L3 21l1.3-4.4A9 9 0 1 1 21 12z"></path><path d="M8.5 9.5c0 4 2 6 6 6 .8 0 1.2-.2 1.5-.7l.5-.8-2.2-1.1-.7.9c-1.4-.4-2.3-1.3-2.7-2.7l.9-.7L10.7 8l-.8.5c-.5.3-.7.7-.7 1.5z"></path></svg>',
@@ -395,13 +541,20 @@ const ICONES = {
   email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>',
 };
 
-// Rótulo acessível descritivo para cada tipo de link
 const ROTULOS_ARIA = {
   portfolio: "Abrir portfólio",
   whatsapp: "Falar no WhatsApp",
   instagram: "Abrir Instagram",
   tiktok: "Abrir TikTok",
   email: "Enviar e-mail",
+};
+
+const CORES_PASTA = {
+  verde: "var(--verde)",
+  magenta: "var(--magenta)",
+  azul: "var(--azul)",
+  amarelo: "var(--amarelo)",
+  rosa: "var(--rosa-claro)",
 };
 
 // ---------- Cabeçalho ----------
@@ -420,12 +573,13 @@ document.getElementById("lista-links").innerHTML = CONFIG.links.map(item => {
   const classes = "link" + (item.destaque ? " destaque" : "");
   const icone = ICONES[item.tipo] || ICONES.portfolio;
   const rotulo = ROTULOS_ARIA[item.tipo] || item.titulo;
+  const corVar = CORES_PASTA[item.cor] || CORES_PASTA.azul;
   const subtitulo = item.subtitulo
     ? '<div class="subtitulo">' + item.subtitulo + '</div>'
     : '';
   return (
     '<a class="' + classes + '" href="' + item.url + '"' + targetAttr + ' aria-label="' + rotulo + ': ' + item.titulo + '">' +
-      '<span class="icone" aria-hidden="true">' + icone + '</span>' +
+      '<span class="pasta" style="--cor-item:' + corVar + '">' + icone + '</span>' +
       '<span class="conteudo">' +
         '<span class="titulo">' + item.titulo + '</span>' +
         subtitulo +
@@ -438,6 +592,24 @@ document.getElementById("lista-links").innerHTML = CONFIG.links.map(item => {
 // ---------- Rodapé ----------
 document.getElementById("rodape-direitos").textContent =
   new Date().getFullYear() + ". " + CONFIG.direitosAutorais;
+
+// ---------- Relógio ao vivo (barra de título + barra de tarefas) ----------
+function atualizarRelogio(){
+  const agora = new Date();
+  const hora = String(agora.getHours()).padStart(2, "0");
+  const minuto = String(agora.getMinutes()).padStart(2, "0");
+  const horaTexto = hora + ":" + minuto;
+
+  const meses = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+  const dataTexto = agora.getDate() + " " + meses[agora.getMonth()] + " · Belo Horizonte/MG";
+
+  const relJanela = document.getElementById("relogio-janela");
+  const relTarefas = document.getElementById("relogio-tarefas");
+  if (relJanela) relJanela.textContent = dataTexto;
+  if (relTarefas) relTarefas.textContent = horaTexto;
+}
+atualizarRelogio();
+setInterval(atualizarRelogio, 15000);
 </script>
 
 </body>
