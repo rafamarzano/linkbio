@@ -2,622 +2,303 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Rafaela Marzano · Links</title>
-<meta name="description" content="Rafaela Marzano, criadora de conteúdo UGC. Portfólio, contato para marcas e redes sociais.">
-<meta name="theme-color" content="#C9D8E5">
+<meta name="description" content="Rafaela Marzano — UGC & nano creator. WhatsApp, portfólio, Instagram, TikTok e e-mail.">
+<meta name="theme-color" content="#ff2d87">
+
+<!--
+  ============================================================================
+  LINK IN BIO — RAFAELA MARZANO (estética Y2K/pink, igual ao portfólio)
+  ============================================================================
+  Arquivo único (HTML + CSS + JS), sem libs externas além do Google Fonts.
+
+  COMO EDITAR:
+  - Os links ficam no array LINKS, dentro do <script> no final do arquivo.
+    Troque "url", "titulo", "sub" ou "cor" ali — o resto é renderizado
+    automaticamente.
+  - Paleta, fontes e efeitos (sticker, glossy, doodles) são os mesmos
+    tokens usados no portfólio, pra manter a mesma cara.
+  ============================================================================
+-->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat:wght@400;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
 
 <style>
-  /* ==========================================================
-     TOKENS DE DESIGN — Versão "Paleta Original"
-     Paleta exata que a Rafa mandou: amarelo manteiga, azul
-     pastel, verde macha, chocolate e os quatro tons de rosa/
-     vermelho. Clima: área de trabalho Windows XP / Mac Finder
-     nostálgica, mesma vibe dos últimos posts dela.
-     ========================================================== */
-  :root{
-    --amarelo: #F5EFC6;
-    --azul: #B7DFFF;
-    --azul-escuro: #6FA8D6;
-    --verde: #BAD797;
-    --verde-escuro: #8FB56C;
-    --chocolate: #3D2722;
-    --rosa-claro: #E29CBF;
-    --rosa: #DA75A5;
-    --magenta: #D2437C;
-    --vermelho: #B2082C;
-    --creme: #FBF8EF;
-    --branco: #FFFDF9;
+:root{
+  --pink-pale:   #ffe9f3;
+  --pink-paper:  #fff3f9;
+  --pink:        #ff6fb0;
+  --pink-hot:    #ff2d87;
+  --pink-deep:   #d4006b;
+  --black:       #18130f;
+  --white:       #fffaf6;
+  --yellow:      #ffe066;
+  --blue:        #c9f2ff;
+  --shadow-hard: 4px 4px 0 var(--black);
+  --shadow-hard-sm: 2.5px 2.5px 0 var(--black);
+  --f-display: 'Anton', sans-serif;
+  --f-label:   'Bebas Neue', sans-serif;
+  --f-hand:    'Permanent Marker', cursive;
+  --f-script:  'Caveat', cursive;
+}
 
-    --serif: "Fraunces", serif;
-    --sans: "Plus Jakarta Sans", sans-serif;
-    --pixel: "VT323", monospace;
+*,*::before,*::after{ box-sizing:border-box; }
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+}
 
-    --raio: 16px;
-    --sombra: 0 20px 45px -18px rgba(61, 39, 34, 0.45);
-    --transicao: 0.35s cubic-bezier(.22,.61,.36,1);
-  }
+html{ scroll-behavior:smooth; }
 
-  *, *::before, *::after{ box-sizing: border-box; }
+body{
+  margin:0; min-height:100vh; min-height:100dvh;
+  background:
+    radial-gradient(ellipse 60% 35% at 10% 5%, rgba(255,111,176,.35), transparent 60%),
+    radial-gradient(ellipse 50% 30% at 95% 15%, rgba(255,45,135,.22), transparent 60%),
+    var(--pink-pale);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(24,19,15,.05) 1px, transparent 0),
+    radial-gradient(ellipse 60% 35% at 10% 5%, rgba(255,111,176,.35), transparent 60%),
+    radial-gradient(ellipse 50% 30% at 95% 15%, rgba(255,45,135,.22), transparent 60%);
+  background-size:14px 14px, auto, auto;
+  color:var(--black);
+  font-family:var(--f-script);
+  -webkit-font-smoothing:antialiased;
+  display:flex; justify-content:center;
+  padding:48px 18px 60px;
+  position:relative;
+  overflow-x:hidden;
+}
 
-  @media (prefers-reduced-motion: reduce){
-    *, *::before, *::after{
-      animation-duration: 0.001ms !important;
-      transition-duration: 0.001ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
+a{ color:inherit; text-decoration:none; }
+::selection{ background:var(--pink-hot); color:var(--white); }
 
-  html{ height: 100%; }
+/* doodles flutuantes de fundo */
+.doodle{ position:fixed; pointer-events:none; filter:drop-shadow(2px 2px 0 rgba(0,0,0,.15)); z-index:0; }
+.float-a{ animation:floatA 6s ease-in-out infinite; }
+.float-b{ animation:floatB 7s ease-in-out infinite; }
+.spin-slow{ animation:spinSlow 14s linear infinite; }
+@keyframes floatA{ 0%,100%{ transform:translateY(0) rotate(var(--r,0deg)); } 50%{ transform:translateY(-12px) rotate(var(--r,0deg)); } }
+@keyframes floatB{ 0%,100%{ transform:translateY(0) rotate(-6deg); } 50%{ transform:translateY(10px) rotate(6deg); } }
+@keyframes spinSlow{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
+@media (max-width:640px){ .doodle.hide-mobile{ display:none; } }
 
-  body{
-    margin: 0;
-    min-height: 100vh;
-    min-height: 100dvh;
-    color: var(--chocolate);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    position: relative;
-    overflow-x: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 44px 18px 84px;
-    /* Fundo: imagem enviada pela Rafa */
-    background-image: url("imagens/fundo.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    /* cursor pixelado, no clima do XP */
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 2 L4 20 L9 16 L12 22 L15 20.5 L12 14.5 L18 14.5 Z" fill="black" stroke="white" stroke-width="1.5"/></svg>') 4 2, auto;
-  }
+.page{
+  position:relative; z-index:1;
+  width:100%; max-width:420px;
+  display:flex; flex-direction:column; align-items:center; gap:18px;
+}
 
-  a{ color: inherit; text-decoration: none; }
-  p{ margin: 0; }
+/* nome recortado de revista, igual ao hero do portfólio */
+.name{ text-align:center; margin:6px 0 0; }
+.name .row{ display:flex; justify-content:center; flex-wrap:wrap; gap:.02em; }
+.lt{
+  display:inline-block; line-height:.85;
+  font-size:clamp(1.7rem, 11vw, 2.9rem);
+  filter:drop-shadow(2.5px 2.5px 0 rgba(0,0,0,.9));
+  padding:0 .02em;
+}
+.lt-1{ font-family:var(--f-display); color:var(--pink-hot); transform:rotate(-6deg); }
+.lt-2{ font-family:var(--f-display); color:var(--black); transform:rotate(4deg); }
+.lt-3{ font-family:var(--f-display); color:var(--white); -webkit-text-stroke:2.5px var(--black); transform:rotate(-3deg); }
+.lt-4{ font-family:var(--f-label); color:var(--pink-deep); transform:rotate(7deg); }
+.lt-5{ font-family:var(--f-display); color:var(--pink-deep); transform:rotate(-8deg); }
+.lt-6{ font-family:var(--f-display); color:var(--black); transform:rotate(5deg); }
+.lt-7{ font-family:var(--f-label); color:var(--pink-hot); transform:rotate(-4deg); }
+.lt-8{ font-family:var(--f-display); color:var(--white); -webkit-text-stroke:2.5px var(--pink-deep); transform:rotate(6deg); }
 
-  a:focus-visible, button:focus-visible{
-    outline: 3px solid var(--vermelho);
-    outline-offset: 3px;
-    border-radius: 8px;
-  }
+.handle{
+  font-family:var(--f-hand); color:var(--pink-deep);
+  background:var(--white); border:2.5px solid var(--black);
+  padding:6px 14px; border-radius:999px; box-shadow:var(--shadow-hard-sm);
+  transform:rotate(-3deg); font-size:.85rem;
+}
 
-  /* Ícones decorativos de "área de trabalho" — puramente atmosféricos */
-  .icone-mesa{
-    position: fixed;
-    z-index: -1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    width: 64px;
-  }
-  .icone-mesa .forma{
-    width: 44px;
-    height: 36px;
-    border-radius: 3px 8px 8px 8px;
-    position: relative;
-    box-shadow: 0 6px 14px -6px rgba(61,39,34,0.5);
-  }
-  .icone-mesa .forma::before{
-    content:"";
-    position: absolute;
-    top: -7px; left: 0;
-    width: 55%; height: 8px;
-    border-radius: 4px 4px 0 0;
-    background: inherit;
-  }
-  .icone-mesa span{
-    font-family: var(--pixel);
-    font-size: 15px;
-    color: var(--chocolate);
-    text-shadow: 0 1px 0 rgba(255,255,255,0.6);
-  }
-  .im1{ top: 6%; left: 4%; }
-  .im1 .forma{ background: var(--rosa-claro); }
-  .im2{ top: 6%; right: 4%; }
-  .im2 .forma{ background: var(--amarelo); }
-  .im3{ top: 46%; right: 3%; }
-  .im3 .forma{ background: var(--azul); }
-  @media (max-width: 720px){ .icone-mesa{ display: none; } }
+.badge-dashed{
+  font-family:var(--f-label); letter-spacing:.08em; font-size:.78rem;
+  color:var(--pink-hot); background:var(--pink-pale);
+  border:2px dashed var(--pink-hot); border-radius:999px;
+  padding:8px 18px; transform:rotate(-1.5deg);
+}
 
-  /* ==========================================================
-     JANELA PRINCIPAL
-     ========================================================== */
-  .pagina{
-    width: 100%;
-    max-width: 440px;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    animation: entrarJanela 0.6s cubic-bezier(.22,.61,.36,1) both;
-  }
+.tagline{
+  text-align:center; font-family:var(--f-script); font-weight:700;
+  font-size:1.05rem; color:var(--black); max-width:320px;
+  background:var(--yellow); display:table; margin:2px auto 0; padding:6px 16px;
+  transform:rotate(1deg); box-shadow:var(--shadow-hard-sm); border:2px solid var(--black);
+}
 
-  @keyframes entrarJanela{
-    from{ opacity: 0; transform: translateY(22px) scale(0.98); }
-    to{ opacity: 1; transform: translateY(0) scale(1); }
-  }
+/* avatar em polaroide (opcional — troque o .ph por <img> quando tiver a foto) */
+.avatar-wrap{ margin-top:2px; }
 
-  .janela{
-    background: var(--creme);
-    border: 1.5px solid rgba(61,39,34,0.14);
-    border-radius: var(--raio);
-    box-shadow: var(--sombra);
-    overflow: hidden;
-  }
+.polaroid{
+  background:var(--white); padding:10px 10px 34px; border:1.5px solid rgba(0,0,0,.15);
+  box-shadow:0 12px 24px -12px rgba(0,0,0,.4), var(--shadow-hard-sm);
+  width:150px; transform:rotate(-3deg); position:relative;
+}
+.ph{
+  position:relative; width:100%; aspect-ratio:4/5; overflow:hidden;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  background:linear-gradient(135deg,#ffd1e8 0%, #ff9ecb 45%, #ff5fa2 100%);
+  font-family:var(--f-label); font-size:.68rem; letter-spacing:.04em; padding:10px;
+}
+.ph::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(115deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 28%, rgba(255,255,255,0) 60%, rgba(255,255,255,.35) 78%, rgba(255,255,255,0) 100%);
+  mix-blend-mode:screen;
+}
+.polaroid figcaption{
+  position:absolute; bottom:8px; left:0; right:0; text-align:center;
+  font-family:var(--f-script); font-weight:700; font-size:.9rem;
+}
 
-  .barra-titulo{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 14px;
-    background: linear-gradient(180deg, #ffffff, #EFE9DA);
-    border-bottom: 1.5px solid rgba(61,39,34,0.12);
-  }
-  .pontos{ display:flex; gap:6px; flex-shrink:0; }
-  .ponto{ width:11px; height:11px; border-radius:50%; display:block; }
-  .ponto.vermelho{ background: var(--vermelho); }
-  .ponto.amarelo{ background: var(--amarelo); border: 1px solid rgba(61,39,34,0.15); }
-  .ponto.verde{ background: var(--verde-escuro); }
+/* lista de links */
+.links{ width:100%; display:flex; flex-direction:column; gap:16px; margin-top:8px; }
+.link-card{
+  display:flex; align-items:center; gap:16px;
+  background:var(--white); border:2.5px solid var(--black); border-radius:20px;
+  padding:16px 18px; box-shadow:var(--shadow-hard);
+  transition:transform .2s ease, box-shadow .2s ease;
+  opacity:0; transform:translateY(14px);
+  animation:cardIn .5s ease forwards;
+}
+@keyframes cardIn{ to{ opacity:1; transform:translateY(0); } }
+.link-card:hover{ transform:translateY(-4px) rotate(-1deg); box-shadow:6px 8px 0 var(--pink-hot); }
+.link-card:active{ transform:translateY(-1px) rotate(0deg); }
 
-  .nome-arquivo{
-    font-family: var(--pixel);
-    font-size: 17px;
-    letter-spacing: 0.02em;
-    color: var(--chocolate);
-    flex-grow: 1;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .relogio-janela{
-    font-family: var(--pixel);
-    font-size: 14px;
-    color: rgba(61,39,34,0.55);
-    flex-shrink: 0;
-    display: none;
-  }
-  @media (min-width: 400px){ .relogio-janela{ display: block; } }
+.link-icon{
+  flex-shrink:0; width:52px; height:52px; border-radius:16px;
+  display:flex; align-items:center; justify-content:center;
+  border:2.5px solid var(--black); box-shadow:var(--shadow-hard-sm);
+}
+.link-icon svg{ width:24px; height:24px; }
 
-  .janela-corpo{
-    padding: 30px 24px 26px;
-    display: flex;
-    flex-direction: column;
-    gap: 26px;
-  }
+.link-body .titulo{
+  font-family:var(--f-label); font-size:1.2rem; letter-spacing:.03em;
+  text-transform:uppercase; line-height:1.1;
+}
+.link-body .sub{
+  font-family:var(--f-script); font-weight:600; font-size:.98rem; color:#5a4d47; margin-top:2px;
+}
 
-  /* ---------- Cabeçalho ---------- */
-  .cabecalho{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
+.link-card.featured{ background:var(--pink-hot); color:var(--white); }
+.link-card.featured .titulo{ color:var(--white); }
+.link-card.featured .sub{ color:rgba(255,255,255,.85); }
+.link-card.featured .link-icon{ background:var(--white); }
+.link-card.featured .link-icon svg{ color:var(--pink-hot); }
 
-  .polaroid{
-    background: var(--branco);
-    padding: 10px 10px 26px;
-    border-radius: 4px;
-    box-shadow: var(--sombra);
-    transform: rotate(-3deg);
-  }
-  .avatar-img{
-    width: 108px;
-    height: 108px;
-    object-fit: cover;
-    display: block;
-    border-radius: 2px;
-  }
-
-  .eyebrow{
-    font-family: var(--pixel);
-    font-size: 18px;
-    letter-spacing: 0.03em;
-    color: var(--vermelho);
-    background: var(--branco);
-    border: 1.5px dashed var(--vermelho);
-    padding: 4px 12px;
-    border-radius: 999px;
-    max-width: 300px;
-    line-height: 1.3;
-  }
-
-  .nome{
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(1.9rem, 8vw, 2.3rem);
-    line-height: 1.1;
-    margin: 0;
-  }
-  .nome em{ font-style: italic; color: var(--magenta); }
-
-  .tagline{
-    font-size: 0.95rem;
-    color: rgba(61,39,34,0.75);
-    max-width: 320px;
-  }
-
-  /* ---------- Lista de links (estilo pastas) ---------- */
-  .links{
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .link{
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: var(--branco);
-    border: 1.5px solid rgba(61,39,34,0.14);
-    border-radius: 14px;
-    padding: 14px 18px 14px 14px;
-    transition: transform var(--transicao), box-shadow var(--transicao), border-color var(--transicao);
-    opacity: 0;
-    animation: entrarLink 0.55s cubic-bezier(.22,.61,.36,1) forwards;
-  }
-  .link:hover, .link:focus-visible{
-    transform: translateY(-3px) rotate(-0.4deg);
-    box-shadow: var(--sombra);
-    border-color: transparent;
-  }
-  .link:active{ transform: translateY(-1px) rotate(0deg); }
-
-  .link:nth-child(1){ animation-delay: 0.10s; }
-  .link:nth-child(2){ animation-delay: 0.18s; }
-  .link:nth-child(3){ animation-delay: 0.26s; }
-  .link:nth-child(4){ animation-delay: 0.34s; }
-  .link:nth-child(5){ animation-delay: 0.42s; }
-
-  @keyframes entrarLink{
-    from{ opacity: 0; transform: translateY(14px); }
-    to{ opacity: 1; transform: translateY(0); }
-  }
-
-  /* pasta: forma com "aba" no topo, cor definida por --cor-item */
-  .pasta{
-    width: 46px;
-    height: 38px;
-    border-radius: 3px 9px 9px 9px;
-    background: var(--cor-item, var(--azul));
-    position: relative;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 12px -6px rgba(61,39,34,0.4);
-  }
-  .pasta::before{
-    content:"";
-    position: absolute;
-    top: -7px; left: 0;
-    width: 56%; height: 8px;
-    border-radius: 4px 4px 0 0;
-    background: var(--cor-item, var(--azul));
-  }
-  .pasta svg{ width: 20px; height: 20px; color: var(--chocolate); position: relative; z-index: 1; }
-
-  .link .conteudo{ flex-grow: 1; min-width: 0; }
-  .link .titulo{
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.08rem;
-    color: var(--chocolate);
-  }
-  .link .subtitulo{
-    font-family: var(--pixel);
-    font-size: 15px;
-    color: rgba(61,39,34,0.6);
-    margin-top: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .link .seta{
-    color: var(--vermelho);
-    font-size: 1.3rem;
-    flex-shrink: 0;
-    transition: transform var(--transicao);
-  }
-  .link:hover .seta{ transform: translateX(4px); }
-
-  /* CTA principal (destaque) */
-  .link.destaque{
-    background: var(--chocolate);
-    border-color: var(--chocolate);
-  }
-  .link.destaque .titulo{ color: var(--creme); }
-  .link.destaque .subtitulo{ color: rgba(245,239,198,0.75); }
-  .link.destaque .seta{ color: var(--amarelo); }
-  .link.destaque:hover{ background: #2C1B17; }
-
-  /* ---------- Nota adesiva ---------- */
-  .nota{
-    align-self: center;
-    max-width: 280px;
-    background: var(--amarelo);
-    color: var(--chocolate);
-    padding: 14px 16px;
-    border-radius: 2px;
-    box-shadow: var(--sombra);
-    transform: rotate(2deg);
-    font-family: var(--pixel);
-    font-size: 18px;
-    text-align: center;
-    line-height: 1.35;
-  }
-  .nota .cursor{
-    display: inline-block;
-    width: 9px;
-    background: var(--chocolate);
-    animation: piscar 1s steps(1) infinite;
-    margin-left: 2px;
-  }
-  @keyframes piscar{ 50%{ opacity: 0; } }
-
-  /* ---------- Rodapé ---------- */
-  .rodape{
-    text-align: center;
-    font-size: 0.78rem;
-    color: rgba(61,39,34,0.6);
-  }
-  .rodape .assinatura{
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 0.98rem;
-    color: var(--chocolate);
-    display: block;
-    margin-bottom: 6px;
-  }
-  .rodape .assinatura em{ color: var(--vermelho); }
-
-  /* ==========================================================
-     BARRA DE TAREFAS
-     ========================================================== */
-  .barra-tarefas{
-    position: fixed;
-    left: 0; right: 0; bottom: 0;
-    z-index: 5;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 0 14px;
-    background: linear-gradient(180deg, #ffffff, #EFE9DA);
-    border-top: 1.5px solid rgba(61,39,34,0.15);
-    box-shadow: 0 -10px 24px -14px rgba(61,39,34,0.35);
-  }
-  .btn-iniciar{
-    font-family: var(--pixel);
-    font-size: 18px;
-    color: var(--branco);
-    background: var(--verde-escuro);
-    border: none;
-    border-radius: 999px;
-    padding: 7px 18px 7px 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: inherit;
-  }
-  .btn-iniciar .quadrado{
-    width: 12px; height: 12px;
-    background: var(--branco);
-    border-radius: 2px;
-  }
-  .tarefas-espaco{ flex-grow: 1; }
-  .relogio-tarefas{
-    font-family: var(--pixel);
-    font-size: 19px;
-    color: var(--chocolate);
-    white-space: nowrap;
-  }
-
-  /* ==========================================================
-     RESPONSIVO
-     ========================================================== */
-  @media (max-width: 380px){
-    body{ padding: 30px 14px 76px; }
-    .janela-corpo{ padding: 24px 18px 22px; }
-    .link{ padding: 12px 14px 12px 12px; gap: 12px; }
-    .pasta{ width: 40px; height: 34px; }
-  }
+.footer-note{
+  margin-top:10px; text-align:center; font-family:var(--f-hand);
+  font-size:.85rem; color:var(--black); opacity:.75; line-height:1.5;
+}
+.footer-note b{ color:var(--pink-deep); }
 </style>
 </head>
 <body>
 
-<div class="icone-mesa im1" aria-hidden="true"><div class="forma"></div><span>fotos</span></div>
-<div class="icone-mesa im2" aria-hidden="true"><div class="forma"></div><span>ideias</span></div>
-<div class="icone-mesa im3" aria-hidden="true"><div class="forma"></div><span>ugc</span></div>
+<!-- doodles decorativos espalhados pelo fundo -->
+<svg class="doodle float-a" style="top:8%;left:6%;--r:-10deg" width="30" height="30" viewBox="0 0 24 24" fill="var(--pink-hot)"><path d="M12 21s-7.5-4.6-10-9.3C0.4 8 2.4 4 6.4 4c2 0 3.6 1.1 4.6 2.7C12 5.1 13.6 4 15.6 4c4 0 6 4 4.4 7.7C19.5 16.4 12 21 12 21z"/></svg>
+<svg class="doodle spin-slow" style="top:14%;right:8%" width="26" height="26" viewBox="0 0 24 24" fill="var(--yellow)" stroke="var(--black)" stroke-width="1"><path d="M12 2l2.4 7.2H22l-6 4.4 2.3 7.2L12 16.4l-6.3 4.4L8 13.6 2 9.2h7.6z"/></svg>
+<svg class="doodle float-b hide-mobile" style="bottom:10%;left:8%" width="24" height="24" viewBox="0 0 24 24" fill="var(--black)"><path d="M12 21s-7.5-4.6-10-9.3C0.4 8 2.4 4 6.4 4c2 0 3.6 1.1 4.6 2.7C12 5.1 13.6 4 15.6 4c4 0 6 4 4.4 7.7C19.5 16.4 12 21 12 21z"/></svg>
+<svg class="doodle float-a hide-mobile" style="bottom:6%;right:10%;--r:8deg" width="22" height="22" viewBox="0 0 24 24" fill="var(--pink)"><path d="M12 2l2.4 7.2H22l-6 4.4 2.3 7.2L12 16.4l-6.3 4.4L8 13.6 2 9.2h7.6z"/></svg>
+<svg class="doodle spin-slow hide-mobile" style="top:45%;right:3%" width="18" height="18" viewBox="0 0 24 24" fill="#c9f2ff" stroke="var(--black)" stroke-width="1"><polygon points="12,2 20,9 12,22 4,9"/></svg>
 
-<div class="pagina">
-  <main class="janela" aria-label="Links de Rafaela Marzano">
-    <div class="barra-titulo">
-      <div class="pontos" aria-hidden="true">
-        <span class="ponto vermelho"></span><span class="ponto amarelo"></span><span class="ponto verde"></span>
-      </div>
-      <span class="nome-arquivo">rafamarzano_bio.app</span>
-      <span class="relogio-janela" id="relogio-janela"></span>
-    </div>
+<div class="page">
+  <span class="handle">@rafamarzano</span>
 
-    <div class="janela-corpo">
-      <header class="cabecalho">
-        <div class="polaroid">
-          <img class="avatar-img" src="imagens/avatar.png" alt="Foto de Rafaela Marzano">
-        </div>
-        <span class="eyebrow" id="cabecalho-eyebrow"></span>
-        <h1 class="nome" id="cabecalho-nome"></h1>
-        <p class="tagline" id="cabecalho-tagline"></p>
-      </header>
+  <h1 class="name">
+    <span class="row">
+      <span class="lt lt-1">R</span><span class="lt lt-2">A</span><span class="lt lt-3">F</span><span class="lt lt-4">A</span><span class="lt lt-5">E</span><span class="lt lt-6">L</span><span class="lt lt-7">A</span>
+    </span>
+    <span class="row">
+      <span class="lt lt-8">M</span><span class="lt lt-1">A</span><span class="lt lt-2">R</span><span class="lt lt-3">Z</span><span class="lt lt-4">A</span><span class="lt lt-5">N</span><span class="lt lt-6">O</span>
+    </span>
+  </h1>
 
-      <nav class="links" id="lista-links" aria-label="Meus links"></nav>
+  <div class="avatar-wrap">
+    <figure class="polaroid">
+      <!-- TROCAR POR IMAGEM REAL: substitua a div.ph por <img src="foto.jpg" alt="Rafaela Marzano"> -->
+      <div class="ph">retrato<br><span>4:5</span></div>
+      <figcaption>hi, it's me</figcaption>
+    </figure>
+  </div>
 
-      <div class="nota" aria-hidden="true">
-        vamos criar juntos?<span class="cursor">&nbsp;</span>
-      </div>
+  <span class="badge-dashed">UGC &amp; NANO CREATOR</span>
+  <p class="tagline">conteúdo que parece indicação de amiga, não propaganda 💋</p>
 
-      <footer class="rodape">
-        <span class="assinatura">Rafaela <em>Marzano</em></span>
-        <span id="rodape-direitos"></span>
-      </footer>
-    </div>
-  </main>
-</div>
+  <nav class="links" id="linksList" aria-label="Meus links"></nav>
 
-<div class="barra-tarefas" aria-hidden="true">
-  <button class="btn-iniciar" type="button" tabindex="-1"><span class="quadrado"></span>menu</button>
-  <div class="tarefas-espaco"></div>
-  <span class="relogio-tarefas" id="relogio-tarefas"></span>
+  <p class="footer-note">feita com <b>♥</b> pra sua marca — <b>vamos criar algo icônico?</b></p>
 </div>
 
 <script>
-/* ================================================================
-   OBJETO DE CONFIGURAÇÃO
-   Edite todo o conteúdo desta página aqui. Não é necessário mexer
-   no código abaixo desta seção para trocar nome, textos ou links.
-   ================================================================ */
-const CONFIG = {
-
-  cabecalho: {
-    eyebrow: "ugc & nano creator",
-    nome: "Rafaela Marzano",
-    tagline: "Vídeos e fotos de produto que ajudam marcas a vender de forma autêntica.",
-  },
-
-  // EDITE AQUI: lista de links, na ordem em que devem aparecer.
-  // "cor" aceita: "verde", "magenta", "azul", "amarelo", "rosa" — cores das pastas.
-  links: [
-    {
-      tipo: "whatsapp",
-      titulo: "Me contrate como criadora",
-      subtitulo: "Fale comigo no WhatsApp",
-      url: "https://wa.me/5531983494752?text=Oi%20Rafa,%20cheguei%20pela%20sua%20bio%20e%20queria%20conversar%20sobre%20uma%20parceria.",
-      destaque: true,
-      cor: "verde",
-    },
-    {
-      tipo: "portfolio",
-      titulo: "Portfólio",
-      subtitulo: "Meus trabalhos e cases",
-      url: "https://rafamarzano.online/",
-      cor: "rosa",
-    },
-    {
-      tipo: "instagram",
-      titulo: "Instagram",
-      subtitulo: "@rafamarzano",
-      url: "https://instagram.com/rafamarzano",
-      cor: "magenta",
-    },
-    {
-      tipo: "tiktok",
-      titulo: "TikTok",
-      subtitulo: "@rafamarzano",
-      url: "https://www.tiktok.com/@rafamarzano",
-      cor: "azul",
-    },
-    {
-      tipo: "email",
-      titulo: "E-mail",
-      subtitulo: "contato@rafamarzano.online",
-      url: "mailto:contato@rafamarzano.online?subject=Contato%20pela%20bio",
-      cor: "amarelo",
-    },
-  ],
-
-  direitosAutorais: "Todos os direitos reservados.",
-};
-
-/* ================================================================
-   RENDERIZAÇÃO — não precisa editar daqui pra baixo
-   ================================================================ */
+/* ============================================================================
+   LINKS — edite aqui: url, título, subtítulo, cor de fundo do ícone e o ícone (svg)
+   ============================================================================ */
 const ICONES = {
-  portfolio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a13.5 13.5 0 0 1 0 18M12 3a13.5 13.5 0 0 0 0 18"></path></svg>',
-  whatsapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.6 7.7L3 21l1.3-4.4A9 9 0 1 1 21 12z"></path><path d="M8.5 9.5c0 4 2 6 6 6 .8 0 1.2-.2 1.5-.7l.5-.8-2.2-1.1-.7.9c-1.4-.4-2.3-1.3-2.7-2.7l.9-.7L10.7 8l-.8.5c-.5.3-.7.7-.7 1.5z"></path></svg>',
-  instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>',
-  tiktok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"></path><path d="M14 4c0 2.2 1.8 4 4 4"></path></svg>',
-  email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>',
+  whatsapp: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.36A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 0 1 6.98 12.5l-.24.4.7 2.55-2.62-.7-.4.24A8.2 8.2 0 1 1 12 3.8Zm-3.1 3.9c-.2 0-.5.06-.77.36-.26.3-1 .98-1 2.4 0 1.4 1.02 2.76 1.16 2.95.14.2 2 3.2 4.9 4.36 2.4.96 2.9.77 3.42.72.53-.05 1.7-.7 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.13-.26-.2-.53-.34-.28-.14-1.62-.8-1.87-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.16-.43-2.2-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.6-1.5-.85-2.05-.22-.5-.44-.5-.62-.5Z"/></svg>',
+  portfolio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13.5 13.5 0 0 1 0 18M12 3a13.5 13.5 0 0 0 0 18"/></svg>',
+  instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
+  tiktok: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.5 2h2.9c.16 1.4.7 2.6 1.6 3.5.9.9 2.1 1.4 3.5 1.6v2.9c-1.5 0-2.9-.4-4.1-1.2v6.6c0 3.5-2.85 6.4-6.4 6.4A6.4 6.4 0 0 1 5.6 15c0-3.5 2.85-6.4 6.4-6.4.4 0 .8.04 1.2.1v3.05a3.2 3.2 0 1 0 2.3 3.07V2Z"/></svg>',
+  email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
 };
 
-const ROTULOS_ARIA = {
-  portfolio: "Abrir portfólio",
-  whatsapp: "Falar no WhatsApp",
-  instagram: "Abrir Instagram",
-  tiktok: "Abrir TikTok",
-  email: "Enviar e-mail",
-};
+// EDITE AQUI: seus links, na ordem em que devem aparecer.
+const LINKS = [
+  {
+    icone: "whatsapp",
+    titulo: "Me contrate como criadora",
+    sub: "Fale comigo no WhatsApp",
+    url: "https://wa.me/5531983494752?text=Oi%20Rafa,%20vim%20pela%20sua%20bio%20e%20queria%20conversar%20sobre%20uma%20parceria.",
+    destaque: true,
+    cor: "var(--pink-hot)",
+  },
+  {
+    icone: "portfolio",
+    titulo: "Portfólio",
+    sub: "Meus trabalhos e cases",
+    url: "https://rafamarzano.online/",
+    cor: "var(--yellow)",
+  },
+  {
+    icone: "instagram",
+    titulo: "Instagram",
+    sub: "@rafamarzano",
+    url: "https://instagram.com/rafamarzano",
+    cor: "var(--pink-hot)",
+  },
+  {
+    icone: "tiktok",
+    titulo: "TikTok",
+    sub: "@rafamarzano",
+    url: "https://tiktok.com/@rafamarzano",
+    cor: "var(--blue)",
+  },
+  {
+    icone: "email",
+    titulo: "E-mail",
+    sub: "contato@rafamarzano.online",
+    url: "mailto:contato@rafamarzano.online",
+    cor: "var(--yellow)",
+  },
+];
 
-const CORES_PASTA = {
-  verde: "var(--verde)",
-  magenta: "var(--magenta)",
-  azul: "var(--azul)",
-  amarelo: "var(--amarelo)",
-  rosa: "var(--rosa-claro)",
-};
-
-// ---------- Cabeçalho ----------
-document.getElementById("cabecalho-eyebrow").textContent = CONFIG.cabecalho.eyebrow;
-document.getElementById("cabecalho-nome").innerHTML =
-  CONFIG.cabecalho.nome.split(" ")[0]
-  + " <em>"
-  + CONFIG.cabecalho.nome.split(" ").slice(1).join(" ")
-  + "</em>";
-document.getElementById("cabecalho-tagline").textContent = CONFIG.cabecalho.tagline;
-
-// ---------- Lista de links ----------
-document.getElementById("lista-links").innerHTML = CONFIG.links.map(item => {
-  const ehExterno = !item.url.startsWith("mailto:");
-  const targetAttr = ehExterno ? ' target="_blank" rel="noopener noreferrer"' : '';
-  const classes = "link" + (item.destaque ? " destaque" : "");
-  const icone = ICONES[item.tipo] || ICONES.portfolio;
-  const rotulo = ROTULOS_ARIA[item.tipo] || item.titulo;
-  const corVar = CORES_PASTA[item.cor] || CORES_PASTA.azul;
-  const subtitulo = item.subtitulo
-    ? '<div class="subtitulo">' + item.subtitulo + '</div>'
-    : '';
-  return (
-    '<a class="' + classes + '" href="' + item.url + '"' + targetAttr + ' aria-label="' + rotulo + ': ' + item.titulo + '">' +
-      '<span class="pasta" style="--cor-item:' + corVar + '">' + icone + '</span>' +
-      '<span class="conteudo">' +
-        '<span class="titulo">' + item.titulo + '</span>' +
-        subtitulo +
-      '</span>' +
-      '<span class="seta" aria-hidden="true">&#8594;</span>' +
-    '</a>'
-  );
-}).join("");
-
-// ---------- Rodapé ----------
-document.getElementById("rodape-direitos").textContent =
-  new Date().getFullYear() + ". " + CONFIG.direitosAutorais;
-
-// ---------- Relógio ao vivo (barra de título + barra de tarefas) ----------
-function atualizarRelogio(){
-  const agora = new Date();
-  const hora = String(agora.getHours()).padStart(2, "0");
-  const minuto = String(agora.getMinutes()).padStart(2, "0");
-  const horaTexto = hora + ":" + minuto;
-
-  const meses = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
-  const dataTexto = agora.getDate() + " " + meses[agora.getMonth()] + " · Belo Horizonte/MG";
-
-  const relJanela = document.getElementById("relogio-janela");
-  const relTarefas = document.getElementById("relogio-tarefas");
-  if (relJanela) relJanela.textContent = dataTexto;
-  if (relTarefas) relTarefas.textContent = horaTexto;
-}
-atualizarRelogio();
-setInterval(atualizarRelogio, 15000);
+document.getElementById('linksList').innerHTML = LINKS.map((item, i) => {
+  const externo = !item.url.startsWith('mailto:');
+  const targetAttr = externo ? ' target="_blank" rel="noopener noreferrer"' : '';
+  const classe = 'link-card' + (item.destaque ? ' featured' : '');
+  const iconBg = item.destaque ? '' : `style="background:${item.cor}"`;
+  return `
+    <a class="${classe}" href="${item.url}"${targetAttr} style="animation-delay:${i * 0.08}s">
+      <span class="link-icon" ${iconBg}>${ICONES[item.icone] || ''}</span>
+      <span class="link-body">
+        <span class="titulo">${item.titulo}</span>
+        <span class="sub">${item.sub}</span>
+      </span>
+    </a>`;
+}).join('');
 </script>
-
 </body>
 </html>
